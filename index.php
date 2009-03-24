@@ -38,7 +38,7 @@
                                 This page is for you! Play with LaTeX online and see the result - the book in pdf - immediately!<br>
                                 This template engine can be easily extended, so do not hesitate - think what sections and template variables<br>
                                 do you want to see here, and tell me about them!<br>
-                                <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator">repository</a> at GitHub!</i>
+                                <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator" target="_blank">repository</a> at GitHub!</i>
 			    </div>
 
                             <h2>How to play</h2>
@@ -51,7 +51,7 @@
 			    </div>
 
                             <h2>Template elements</h2>
-                            <div id="accordionResizer" style="padding:10px; width:550px; height:420px;" class="ui-widget-content">
+                            <div id="accordionResizer" style="padding:10px; width:550px; height:400px;" class="ui-widget-content">
                             <div id="accordion">
 
                                 <h3><a href="#">Book parameters:</a></h3>
