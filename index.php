@@ -56,6 +56,8 @@
                                     board size: 
                                     <input type="text" size="2" maxlength="2" id="sizex"></input> x 
                                     <input type="text" size="2" maxlength="2" id="sizey"></input>
+                                    , number of puzzles:
+                                    <input type="text" size="3" maxlength="3" id="num_boards"></input> ( x 2 types)
                                     <p>
                                 </div>
                                 <h4><a href="#">LaTeX header:</a></h4>
@@ -99,7 +101,7 @@
                         
                         <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a>
                         <p>
-                        book creation log:<p>
+                        latex2pdf log:<p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
 		    </ul>
 		</div> 

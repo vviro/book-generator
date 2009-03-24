@@ -56,7 +56,7 @@ $cellborder = 3;
 $boardborder = 3;
 
 $im_side_x = 2*$boardborder + $nx*($cellwidth + $cellborder) - $cellborder;
-$im_side_y = 2*$boardborder + $ny*($cellwidth + $cellborder) - $cellborder;
+$im_side_y = 2*$boardborder + $ny*($cellwidth + $cellborder);
 
 
 $im = imagecreatetruecolor( $im_side_x, $im_side_y );

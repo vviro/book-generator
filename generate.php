@@ -10,6 +10,7 @@ exec("mkdir $dir");
 $head = $_REQUEST['head'];
 $page = $_REQUEST['page'];
 $foot = $_REQUEST['foot'];
+$num_boards = $_REQUEST['num_boards'];
 
 $x = $_REQUEST['x'];
 $y = $_REQUEST['y'];
@@ -33,6 +34,9 @@ $fx = fopen("$dir/sizex",'w');
 fwrite($fx, $x);
 $fy = fopen("$dir/sizey",'w');
 fwrite($fy, $y);
+
+$fn = fopen("$dir/num_boards",'w');
+fwrite($fn, $num_boards);
 
 
 passthru("/var/www/tmp/book/makebook $dir");

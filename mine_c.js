@@ -6,7 +6,9 @@ function main()
     n = 0;
 
     n1 = 4;
-    n2 = 4;
+    n1 = parseInt(readFile('num_boards'));
+
+    n2 = n1;
 
     x = parseInt(readFile('sizex'));
     y = parseInt(readFile('sizey'));

@@ -11,6 +11,7 @@ $(document).ready(function() {
     $('#tex-foot').html(tex_foot);
     $('#sizex').val(5);
     $('#sizey').val(6);
+    $('#num_boards').val(2);
 
     $('#book-link').hide();
     $('#pdf-preview').hide();
@@ -48,7 +49,8 @@ $(document).ready(function() {
         $('#log').html('');
         $('.media').empty();
         $('#wait').show();
-        $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), id: req_id}, function(data){ 
+        $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), 
+                                 num_boards: $('#num_boards').val(), id: req_id}, function(data){ 
                 $('#log').html(data);
                 $('#book-link').show("fast");
                 $('#pdf-preview').show("fast");
