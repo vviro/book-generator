@@ -10,6 +10,8 @@
 
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+        <script type="text/javascript" src="js/jquery.media.js"></script> 
+        <script type="text/javascript" src="js/jquery.metadata.min.js"></script> 
         <script type="text/javascript" src="js/php.default.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
 
@@ -89,6 +91,9 @@
 
                         book creation log:<p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
+
+                        <p>
+                        <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a> 
 		    </ul>
 		</div> 
 	    </div> 

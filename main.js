@@ -13,6 +13,7 @@ $(document).ready(function() {
     $('#sizey').val(6);
 
     $('#book-link').hide();
+    $('#pdf-preview').hide();
     $('#wait').hide();
 });
 
@@ -35,15 +36,20 @@ $(document).ready(function() {
         var req_id = Math.floor(Math.random()*10000000);
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
+        $('#pdf-preview').hide();
         $('#log').html('');
         $('#wait').show();
         $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), id: req_id}, function(data){ 
                 $('#log').html(data);
                 $('#book-link').show("fast");
                 $('#pdf-link').attr("href", "cache/"+md5_id+"/book.pdf");
+                $('#pdf-preview').attr("href", "cache/"+md5_id+"/book.pdf");
                 $('#tex-link').attr("href", "cache/"+md5_id+"/book.tex");
                 $('#img-link').attr("href", "cache/"+md5_id+"/book-images.tar.bz2");
                 $('#wait').hide();
+
+                $('.media').media();
+                $('a.media').media({width:290, height:340});
             } );
     });
 
