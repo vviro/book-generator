@@ -1,0 +1,19 @@
+#!/bin/bash
+if [ -z "$1" ]
+then
+    cachedir='/var/www/tmp/book/cache/anon';
+    echo "set cache directory to $cachedir"
+    mkdir $cachedir
+else
+    cachedir=$1;
+fi
+
+. ./changedir.sh $cachedir
+mkdir img
+
+export CLASSPATH=/var/www/tmp/rhino1_7R1/js.jar:$CLASSPATH
+/usr/bin/java org.mozilla.javascript.tools.shell.Main ../../mine_c.js
+tar -cjf book-images.tar.bz2 img/
+pdflatex -interaction nonstopmode book.tex
+rm img/*
+rm book.aux book.log
