@@ -6,9 +6,9 @@ var tex_page = '\\begin{wrapfigure}{c}{150mm} <br>    \n\\vspace{-1pt}<br>    \n
 var tex_foot = "\\end{document}";
 
 $(document).ready(function() {
-    $('#tex-head').html(tex_head);
-    $('#tex-page').html(tex_page);
-    $('#tex-foot').html(tex_foot);
+    $('#tex-head').val(tex_head);
+    $('#tex-page').val(tex_page);
+    $('#tex-foot').val(tex_foot);
     $('#sizex').val(5);
     $('#sizey').val(6);
     $('#num_boards').val(2);
@@ -28,15 +28,15 @@ $(document).ready(function() {
 
 
 function head() {
-    return $('#tex-head').html();
+    return $('#tex-head').val();
 }
 
 function page() {
-    return $('#tex-page').html();
+    return $('#tex-page').val();
 }
 
 function foot() {
-    return $('#tex-foot').html();
+    return $('#tex-foot').val();
 }
 
 $(document).ready(function() {
