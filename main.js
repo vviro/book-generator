@@ -1,11 +1,12 @@
 
-var tex_head = "\\documentclass[a5paper]{memoir}\n<br>\\usepackage{graphicx} <br>\n\\usepackage{wrapfig} <br>\n\\begin{document}\n\n";
+var tex_head = "\\documentclass[a5paper]{memoir}\n\\usepackage{graphicx} \n\\usepackage{wrapfig} \n\\begin{document}\n\n";
 
-var tex_page = '\\begin{wrapfigure}{c}{150mm} <br>    \n\\vspace{-1pt}<br>    \n\\includegraphics[height=150px]{$image}<br>   \n\\caption{$title}<br>   \n\\hspace{-20pt}<br>\n\\end{wrapfigure}<br><br>\n\n\\newpage\n';
+var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includegraphics[height=150px]{$image}   \n\\caption{$title}   \n\\hspace{-20pt}\n\\end{wrapfigure}\n\n\\newpage\n';
 
 var tex_foot = "\\end{document}";
 
 $(document).ready(function() {
+
     $('#tex-head').val(tex_head);
     $('#tex-page').val(tex_page);
     $('#tex-foot').val(tex_foot);
