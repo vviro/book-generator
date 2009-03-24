@@ -8,8 +8,10 @@
 	<link rel="stylesheet" type="text/css" href="css/base-min.css"> 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
+        <link type="text/css" href="css/smoothness/jquery-ui-1.7.1.custom.css" rel="Stylesheet" /> 
+        <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
         <script type="text/javascript" src="js/jquery.media.js"></script> 
         <script type="text/javascript" src="js/jquery.metadata.min.js"></script> 
         <script type="text/javascript" src="js/php.default.min.js"></script>
@@ -27,15 +29,17 @@
 		<div id="yui-main">
 	    	    <div class="yui-b">
 			<div class="yui-g">
+
+                            <h2>Introduction</h2>
 			    <div id="introduction" class="topic">
-                                <h2>Introduction</h2>
                                 Are you thinking of writing a Minesweeper book but are not sure about the best layout for the puzzles?<br>
                                 This page is for you! Play with LaTeX online and see the result - the book in pdf - immediately!<br>
                                 This template engine can be easily extended, so do not hesitate - think what sections and template variables<br>
                                 do you want to see here, and tell me about them!<br>
 			    </div>
+
+                            <h2>How to play</h2>
                             <div id="rules" class="topic">                                
-                                <h2>How to play</h2>
 			        Edit the template elements, click "Generate Book", wait a few moments and follow the link.<br>
                                 After the book is generated you'll see the latex2pdf output in the log window.
 	
@@ -43,32 +47,35 @@
 								
 			    </div>
 
-                            <div id="template" class="topic">
-                                <h2>Template elements</h2>
-                                <form id="template">
+                            <h2>Template elements</h2>
+                            <div id="accordion" class="topic">
 
-                                    board size:
+                                <h4><a href="#">Book parameters:</a></h4>
+                                <div>
+                                    board size: 
                                     <input type="text" size="2" maxlength="2" id="sizex"></input> x 
                                     <input type="text" size="2" maxlength="2" id="sizey"></input>
                                     <p>
-
-                                    <h4>LaTeX header:</h4>
+                                </div>
+                                <h4><a href="#">LaTeX header:</a></h4>
+                                <div>
                                     <textarea id="tex-head" class='tex' rows="5" cols="40">
                                     </textarea>
 
                                     <p>
-
-                                    <h4>puzzle page:</h4>
+                                </div>
+                                <h4><a href="#">Puzzle page:</a></h4>
+                                <div>
                                     <textarea id="tex-page" class='tex' rows="10" cols="40">
                                     </textarea>
                                     
                                     <p>
-
-                                    <h4>LaTeX footer:</h4>
+                                </div>
+                                <h4><a href="#">LaTeX footer:</a></h4>
+                                <div>
                                     <textarea id="tex-foot" class='tex' rows="2" cols="40">
                                     </textarea>
-                                </form>
-
+                                </div>
                             </div>			    
 			</div> 
 		    </div> 
@@ -87,17 +94,20 @@
                             ,
                             <a href="cache/anon/book-images.tar.bz2" id='img-link'><small>Book image files</small></a>
                         </div>
-                        <p><p><p>
-
+                        <p><p>
+                        
+                        <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a>
+                        <p>
                         book creation log:<p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
-
-                        <p>
-                        <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a> 
 		    </ul>
 		</div> 
 	    </div> 
-	    <div id="ft"><center>last edited: <?php echo date ("d-m-Y", filemtime('index.php')) ?><p></center></div> 
+	    <div id="ft">
+                <div id="footer">
+                <center>last edited: <?php echo date ("d-m-Y", filemtime('index.php')) ?><p></center>
+                </div>
+            </div> 
 	</div> 
     
     </body>
