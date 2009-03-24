@@ -36,6 +36,7 @@
                                 This page is for you! Play with LaTeX online and see the result - the book in pdf - immediately!<br>
                                 This template engine can be easily extended, so do not hesitate - think what sections and template variables<br>
                                 do you want to see here, and tell me about them!<br>
+                                <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator">repository</a> at GitHub!</i>
 			    </div>
 
                             <h2>How to play</h2>
@@ -43,7 +44,7 @@
 			        Edit the template elements, click "Generate Book", wait a few moments and follow the link.<br>
                                 After the book is generated you'll see the latex2pdf output in the log window.
 	
-				That's it, have fun!<p>
+				That's it - have fun!<p>
 								
 			    </div>
 

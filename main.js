@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('#tex-head').html(tex_head);
     $('#tex-page').html(tex_page);
     $('#tex-foot').html(tex_foot);
-    $('#sizex').val(4);
+    $('#sizex').val(5);
     $('#sizey').val(6);
 
     $('#book-link').hide();
