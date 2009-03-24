@@ -51,7 +51,7 @@
 			    </div>
 
                             <h2>Template elements</h2>
-                            <div id="accordionResizer" style="padding:10px; width:550px; height:400px;" class="ui-widget-content">
+                            <div id="accordionResizer" style="padding:10px; width:614px; height:459px;" class="ui-widget-content">
                             <div id="accordion">
 
                                 <h3><a href="#">Book parameters:</a></h3>

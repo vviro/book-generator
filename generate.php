@@ -12,6 +12,8 @@ $page = $_REQUEST['page'];
 $foot = $_REQUEST['foot'];
 $num_boards = $_REQUEST['num_boards'];
 
+if ($num_boards > 1000) $num_boards = 1;
+
 $x = $_REQUEST['x'];
 $y = $_REQUEST['y'];
 
@@ -39,6 +41,8 @@ $fn = fopen("$dir/num_boards",'w');
 fwrite($fn, $num_boards);
 
 
-passthru("/var/www/tmp/book/makebook $dir");
+$out = shell_exec("/var/www/tmp/book/makebook $dir");
+
+print($out);
 
 ?>
