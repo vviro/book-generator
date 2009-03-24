@@ -19,8 +19,16 @@ $(document).ready(function() {
 
     $(function() {
         $("#accordion").accordion({
-            autoHeight: false,
-            event: "mouseover"
+            event: "mouseover",
+            fillSpace: true
+        });
+    });
+    $(function() {
+        $("#accordionResizer").resizable({
+            resize: function() {
+                $("#accordion").accordion("resize");
+            },
+            minHeight: 40
         });
     });
 

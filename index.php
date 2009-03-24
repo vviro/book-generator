@@ -9,12 +9,14 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
         <link type="text/css" href="css/smoothness/jquery-ui-1.7.1.custom.css" rel="Stylesheet" /> 
+
+        <script type="text/javascript" src="js/php.default.min.js"></script>
+        
         <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
 
         <script type="text/javascript" src="js/jquery.media.js"></script> 
         <script type="text/javascript" src="js/jquery.metadata.min.js"></script> 
-        <script type="text/javascript" src="js/php.default.min.js"></script>
         <script type="text/javascript" src="main.js"></script>
 
     </head>
@@ -49,37 +51,34 @@
 			    </div>
 
                             <h2>Template elements</h2>
-                            <div id="accordion" class="topic">
+                            <div id="accordionResizer" style="padding:10px; width:550px; height:420px;" class="ui-widget-content">
+                            <div id="accordion">
 
-                                <h4><a href="#">Book parameters:</a></h4>
+                                <h3><a href="#">Book parameters:</a></h3>
                                 <div>
                                     board size: 
                                     <input type="text" size="2" maxlength="2" id="sizex"></input> x 
                                     <input type="text" size="2" maxlength="2" id="sizey"></input>
                                     , number of puzzles:
                                     <input type="text" size="3" maxlength="3" id="num_boards"></input> ( x 2 types)
-                                    <p>
                                 </div>
-                                <h4><a href="#">LaTeX header:</a></h4>
+                                <h3><a href="#">LaTeX header:</a></h3>
                                 <div>
                                     <textarea id="tex-head" class='tex' rows="5" cols="40">
                                     </textarea>
-
-                                    <p>
                                 </div>
-                                <h4><a href="#">Puzzle page:</a></h4>
+                                <h3><a href="#">Puzzle page:</a></h3>
                                 <div>
                                     <textarea id="tex-page" class='tex' rows="10" cols="40">
                                     </textarea>
-                                    
-                                    <p>
                                 </div>
-                                <h4><a href="#">LaTeX footer:</a></h4>
+                                <h3><a href="#">LaTeX footer:</a></h3>
                                 <div>
                                     <textarea id="tex-foot" class='tex' rows="2" cols="40">
                                     </textarea>
                                 </div>
                             </div>			    
+                            </div>
 			</div> 
 		    </div> 
 		</div> 
