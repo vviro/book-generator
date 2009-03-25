@@ -2,7 +2,7 @@
 
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-	<title>MineBook</title>
+	<title>Scripted LaTeX Book Generator</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids.css">
 	<link rel="stylesheet" type="text/css" href="css/base-min.css"> 
@@ -25,7 +25,7 @@
     
 	<div id="doc4" class="yui-t6"> 
 	    <div id="hd">
-		<h1>Generate a Minesweeper Book Online!</h1>
+		<h1>Create a JavaScripted LaTeX Document!</h1>
 	    </div> 
 	    <div id="bd"> 
 		<div id="yui-main">
@@ -34,16 +34,14 @@
 
                             <h2>Introduction</h2>
 			    <div id="introduction" class="topic">
-                                Are you thinking of writing a Minesweeper book but are not sure about the best layout for the puzzles?<br>
-                                This page is for you! Play with LaTeX online and see the result - the book in pdf - immediately!<br>
-                                This template engine can be easily extended, so do not hesitate - think what sections and template variables<br>
-                                do you want to see here, and tell me about them!<br>
+                                Do you need an automation tool for creating a high quality print documents?<br>
+                                This page is for you! Play with LaTeX online and see the resulting pdf immediately!<br>
                                 <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator" target="_blank">repository</a> at GitHub!</i>
 			    </div>
 
                             <h2>How to play</h2>
                             <div id="rules" class="topic">                                
-			        Edit the template elements, click "Generate Book", wait a few moments and follow the link.<br>
+			        Edit the template elements, click "Generate LaTeX", wait a few moments and follow the link.<br>
                                 After the book is generated you'll see the pdflatex output in the log window.
 	
 				That's it - have fun!<p>
