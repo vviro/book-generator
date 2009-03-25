@@ -2,7 +2,7 @@
 
     <head>
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
-	<title>Scripted LaTeX Book Generator</title>
+	<title>Scripted LaTeX Generator</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids.css">
 	<link rel="stylesheet" type="text/css" href="css/base-min.css"> 
@@ -37,20 +37,17 @@
 	    	    <div class="yui-b">
 			<div class="yui-g">
 
-                            <h2>Introduction</h2>
-			    <div id="introduction" class="topic">
+                            <div id="intro">
+                                <h2>Introduction</h2>
                                 Do you need an automation tool for creating a high quality print documents?<br>
                                 This page is for you! Play with LaTeX online and see the resulting pdf immediately!<br>
                                 <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator" target="_blank">repository</a> at GitHub!</i>
-			    </div>
 
-                            <h2>How to play</h2>
-                            <div id="rules" class="topic">                                
+                                <h2>How to play</h2>
 			        Edit the template elements, click "Generate LaTeX", wait a few moments and follow the link.<br>
                                 After the book is generated you'll see the pdflatex output in the log window.
 	
 				That's it - have fun!<p>
-								
 			    </div>
 
                             <div id="latex-js">
@@ -95,7 +92,7 @@
 		<div class="yui-b">
 		    <ul class="right_nav">
 
-                        <input type="button" id="generate" value="Generate Book"/>
+                        <input type="button" id="generate" value="Generate LaTeX"/>
                         <p>
                         <img src="img/wait30trans.gif" id='wait'/>
                         <p>
