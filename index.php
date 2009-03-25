@@ -61,25 +61,7 @@
                             <div id="accordionResizer" style="padding:10px; width:614px; height:459px;" class="ui-widget-content">
                             <div id="accordion">
 
-                                <h3><a href="#">Book parameters:</a></h3>
-                                <div>
-                                    board size: 
-                                    <input type="text" size="2" maxlength="2" id="sizex"></input> x 
-                                    <input type="text" size="2" maxlength="2" id="sizey"></input>
-                                    , number of puzzles:
-                                    <input type="text" size="3" maxlength="3" id="num_boards"></input> ( x 2 types)
-                                </div>
-                                <h3><a href="#">LaTeX header:</a></h3>
-                                <div>
-                                    <textarea id="tex-head" class='tex' rows="5" cols="40">
-                                    </textarea>
-                                </div>
-                                <h3><a href="#">Puzzle page:</a></h3>
-                                <div>
-                                    <textarea id="tex-page" class='tex' rows="10" cols="40">
-                                    </textarea>
-                                </div>
-                                <h3><a href="#">LaTeX footer:</a></h3>
+                                <h3><a href="#" id="c1234af1235">block title</a></h3>
                                 <div>
                                     <textarea id="tex-foot" class='tex' rows="2" cols="40">
                                     </textarea>
