@@ -67,16 +67,19 @@ $(document).ready(function() {
                 $('#tex-link').attr("href", "cache/"+md5_id+"/book.tex");
                 $('#img-link').attr("href", "cache/"+md5_id+"/book-images.tar.bz2");
 
-                var t = data.indexOf("no output PDF file produced");
+                var t1 = data.indexOf("no output PDF file produced");
+                var t2 = data.indexOf("Output written on");
 
-                if (t === -1) {
+                if (t1 === -1 && t2 !== -1) {
                     $('#book-link').show("fast");
                     $('#pdf-preview').show("fast");
                     $('#pdf-link').attr("href", "cache/"+md5_id+"/book.pdf");
                     $('#pdf-preview').attr("href", "cache/"+md5_id+"/book.pdf");
                     $('.media').media({width:290, height:425, src:"cache/"+md5_id+"/book.pdf"});
-                } else {
-                    alert("The book could not be generated due to LaTeX error. See the log for details.");
+                } else if (t1 === -1 && t2 ===-1) {
+                    alert("The book is empty => the book does not exist");
+                } else if (t1 !== -1) {
+                    alert("The book could not be generated due to LaTeX error(s). See the log for details.");
                 }
             } );
     });
