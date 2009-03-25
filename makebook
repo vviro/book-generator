@@ -14,6 +14,7 @@ mkdir img
 export CLASSPATH=/var/www/tmp/rhino1_7R1/js.jar:$CLASSPATH
 /usr/bin/java org.mozilla.javascript.tools.shell.Main ../../mine_c.js
 tar -cjf book-images.tar.bz2 img/
-pdflatex -interaction nonstopmode book.tex
+pdflatex -interaction nonstopmode book.tex >> pdflatex.log
 rm img/*
 rm book.aux book.log
+cat pdflatex.log

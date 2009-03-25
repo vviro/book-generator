@@ -44,7 +44,7 @@
                             <h2>How to play</h2>
                             <div id="rules" class="topic">                                
 			        Edit the template elements, click "Generate Book", wait a few moments and follow the link.<br>
-                                After the book is generated you'll see the latex2pdf output in the log window.
+                                After the book is generated you'll see the pdflatex output in the log window.
 	
 				That's it - have fun!<p>
 								
@@ -100,7 +100,7 @@
                         
                         <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a>
                         <p>
-                        latex2pdf log:<p>
+                        pdflatex log:<p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
 		    </ul>
 		</div> 

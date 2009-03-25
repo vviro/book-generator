@@ -55,12 +55,12 @@ $(document).ready(function() {
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
         $('#pdf-preview').hide("fast");
-        $('#log').html('');
+        $('#log').empty();
         $('.media').empty();
         $('#wait').show();
         $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), 
                                  num_boards: $('#num_boards').val(), id: req_id}, function(data){ 
-                $('#log').html(data);
+                $('#log').val(data);
                 $('#book-link').show("fast");
                 $('#pdf-preview').show("fast");
                 $('#pdf-link').attr("href", "cache/"+md5_id+"/book.pdf");
