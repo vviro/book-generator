@@ -14,6 +14,7 @@ $(document).ready(function() {
     $('#sizey').val(6);
     $('#num_boards').val(2);
 
+    $('#log').val("");
     $('#book-link').hide();
     $('#pdf-preview').hide();
     $('#wait').hide();
@@ -55,21 +56,28 @@ $(document).ready(function() {
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
         $('#pdf-preview').hide("fast");
-        $('#log').empty();
+        $('#log').empty().val("");
         $('.media').empty();
         $('#wait').show();
         $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), 
                                  num_boards: $('#num_boards').val(), id: req_id}, function(data){ 
+
                 $('#log').val(data);
-                $('#book-link').show("fast");
-                $('#pdf-preview').show("fast");
-                $('#pdf-link').attr("href", "cache/"+md5_id+"/book.pdf");
-                $('#pdf-preview').attr("href", "cache/"+md5_id+"/book.pdf");
+                $('#wait').hide();
                 $('#tex-link').attr("href", "cache/"+md5_id+"/book.tex");
                 $('#img-link').attr("href", "cache/"+md5_id+"/book-images.tar.bz2");
-                $('#wait').hide();
 
-                $('.media').media({width:290, height:425, src:"cache/"+md5_id+"/book.pdf"});
+                var t = data.indexOf("no output PDF file produced");
+
+                if (t === -1) {
+                    $('#book-link').show("fast");
+                    $('#pdf-preview').show("fast");
+                    $('#pdf-link').attr("href", "cache/"+md5_id+"/book.pdf");
+                    $('#pdf-preview').attr("href", "cache/"+md5_id+"/book.pdf");
+                    $('.media').media({width:290, height:425, src:"cache/"+md5_id+"/book.pdf"});
+                } else {
+                    alert("The book could not be generated due to LaTeX error. See the log for details.");
+                }
             } );
     });
 
