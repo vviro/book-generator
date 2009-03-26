@@ -43,9 +43,13 @@
                                 This page is for you! Play with LaTeX online and see the resulting pdf immediately!<br>
                                 <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator" target="_blank">repository</a> at GitHub!</i>
 
-                                <h2>How to play</h2>
-			        Edit the template elements, click "Generate LaTeX", wait a few moments and follow the link.<br>
-                                After the book is generated you'll see the pdflatex output in the log window.
+                                <h2>How to make it work</h2>
+                                You can define any number of LaTeX snippets and in them use the variables, that are set by your javascript code.<br>
+                                The javascript template works as follows:<br><br>
+                                    <b><i>$-sign</i></b> means the produced LaTeX code,<br>
+                                    <b><i>@templateA( var1, var2 )</i></b> means content of LaTeX snippet with name templateA and variables var1 and var2 set to the values of corresponding variables from the javascript.<br><br>
+			        After you are finished with editing, click "Generate LaTeX", wait a few moments and follow the link.<br>
+                                After the pdf file is generated you'll see the pdflatex output in the log window.
 	
 				That's it - have fun!<p>
 			    </div>
@@ -53,19 +57,51 @@
                             <div id="latex-js">
                                 <h2>LaTeX-generating Javascript</h2>
 
-                                <textarea id="js-code" class='js' rows="10" cols="80">
+                                <textarea id="js-code" class='js' rows="13" cols="80">
                                 </textarea>
                             </div>
 
                             <h2>Template elements</h2>
+
+                            <div>
+                                <input type="button" value="add a template chunk"/>, 
+                                <input type="button" value="save current state"/>
+                            </div>
+
                             <div id="accordionResizer" style="padding:10px; width:614px; height:459px;" class="ui-widget-content">
                             <div id="accordion">
 
-                                <h3><a href="#" id="c1234af1235">block title</a></h3>
+                                <h3><a href="#" id="c152623235">header</a></h3>
                                 <div>
-                                    <textarea id="tex-foot" class='tex' rows="2" cols="40">
+                                    block title:
+                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="header"/>
+                                    <input type="button" value="reset name"/>
+                                    <p>
+                                    <textarea class='tex' id="tex-head" rows="7" cols="40">
                                     </textarea>
                                 </div>
+
+
+                                <h3><a href="#" id="c1234af1235">block_1</a></h3>
+                                <div>
+                                    block title: 
+                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="block_1"/>   
+                                    <input type="button" value="reset name"/>
+                                    <p> 
+                                    <textarea class='tex' rows="15" cols="40" value="I'm number $name.">
+                                    </textarea>
+                                </div>
+
+                                <h3><a href="#" id="c1232342235">footer</a></h3>
+                                <div>
+                                    block title:
+                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="footer"/>
+                                    <input type="button" value="reset name"/>
+                                    <p>
+                                    <textarea class='tex' id="tex-foot" rows="7" cols="40">
+                                    </textarea>
+                                </div>
+
                             </div>			    
                             </div>
 			</div> 

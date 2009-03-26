@@ -1,4 +1,21 @@
 
+var js_example =
+"n = 3;\n" +
+"\n" +
+"$ += @header();\n" +
+"\n" +
+"for (i = 1; i < n; i++) {\n" +
+"  name = generateStatement(i);\n" +
+"  $ += @block_1( name );\n" +
+"}\n" +
+"\n" +
+"$ += @footer();\n" +
+"\n" +
+"function generateStatement( i ) {\n" +
+"   return \"I'm number \" + i + \".\";\n" +
+"}\n" +
+"";
+
 var tex_head = "\\documentclass[a5paper]{memoir}\n\\usepackage{graphicx} \n\\usepackage{wrapfig} \n\\begin{document}";
 
 var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includegraphics[height=150px]{$image}   \n\\caption{$title}   \n\\hspace{-20pt}\n\\end{wrapfigure}\n\n\\newpage\n';
@@ -7,9 +24,11 @@ var tex_foot = "\\end{document}";
 
 $(document).ready(function() {
 
+    $('#js-code').val(js_example);
+
     $('#tex-head').val(tex_head);
-    $('#tex-page').val(tex_page);
     $('#tex-foot').val(tex_foot);
+
     $('#sizex').val(5);
     $('#sizey').val(6);
     $('#num_boards').val(2);

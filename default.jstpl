@@ -1,0 +1,15 @@
+n = 3;
+
+$ += @header();
+
+for (i = 1; i < n; i++) {
+  name = generateStatement(i);
+  $ += @block_1( name );
+}
+
+$ += @footer();
+
+function generateStatement( i ) {
+   return "I'm number " + i + ".";
+}
+
