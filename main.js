@@ -1,4 +1,3 @@
-
 var js_example =
 "n = 3;\n" +
 "\n" +
@@ -94,9 +93,9 @@ $(document).ready(function() {
         $('.media').empty();
         $('#wait').show();
 
-        var post_req = new Object();
+        var post_req = new Object;
         jQuery.each( editAreaLoader.getAllFiles('editor'), function(i, val) {
-            post_req[val.title] = val.text;
+            post_req['@'+val.title] = val.text;
         });
         post_req['id'] = req_id;
 

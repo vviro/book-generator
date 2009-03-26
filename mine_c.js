@@ -35,14 +35,12 @@ function main()
 
 function startLaTeX() {
     runCommand('touch', 'book.tex');
-    header = '\n\\documentclass[a5paper]{memoir}\n\n\\usepackage{graphicx} \n\\usepackage{wrapfig} \n\n\\begin{document}\n\n';
     header = readFile('header.tex');
 
     runCommand('bash','-c', 'echo "'+header+'" > book.tex');
 };
 
 function finishLaTeX() {
-    footer = '\n\\end{document}';
     footer = readFile('footer.tex');
     runCommand('bash','-c', 'echo "'+footer+'" >> book.tex');
 };
