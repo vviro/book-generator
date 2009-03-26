@@ -37,7 +37,7 @@
                                 This page is for you! Play with LaTeX online and see the resulting pdf immediately!<br>
                                 <i>Curious about the code? Want to contribute? Check out the <a href="http://github.com/vviro/book-generator" target="_blank">repository</a> at GitHub!</i>
 
-                                <h2>How to make it work</h2>
+                                <h2>How to use the system</h2>
                                 You can define any number of LaTeX snippets and in them use the variables, that are set by your javascript code.<br>
                                 The javascript template works as follows:<br><br>
                                     <b><i>$-sign</i></b> means the produced LaTeX code,<br>

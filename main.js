@@ -23,6 +23,9 @@ var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includ
 
 var block_1_text = "Hi, my name is $name. Did you know that $ \\sum_{0}^{$i} n $ equals $ $j $?\n";
 
+var block_2_text = "";
+var block_3_text = "";
+
 var tex_foot = "\n\\end{document}";
 
 function editAreaLoaded(id) {
@@ -35,6 +38,12 @@ function editAreaLoaded(id) {
 
         var block_1_file = {id: "block_1", text: block_1_text, syntax: 'basic', title: 'block_1'};
         editAreaLoader.openFile('editor', block_1_file);
+
+        var block_2_file = {id: "block_2", text: block_2_text, syntax: 'basic', title: 'block_2'};
+        editAreaLoader.openFile('editor', block_2_file);
+
+        var block_3_file = {id: "block_3", text: block_3_text, syntax: 'basic', title: 'block_3'};
+        editAreaLoader.openFile('editor', block_3_file);
 
         var footer_file = {id: "footer", text: tex_foot, syntax: 'basic', title: 'footer'};
         editAreaLoader.openFile('editor', footer_file);
