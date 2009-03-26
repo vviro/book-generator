@@ -38,7 +38,7 @@ foreach ($_REQUEST as $key => $template) {
         $fun .= "  val_$key = val_$key.replace('$var_name', $var_name);\n";      
     }
 //    $fun .= "  runCommand('bash','-c', 'echo \" + val_$key + \" >> book.tex');\n";
-    $fun .= "  return val_$key+\"\n\";\n";
+    $fun .= "  return val_$key+\"\\n\";\n";
     $fun .= "}\n\n";
 
     fwrite($fj, $fun);
