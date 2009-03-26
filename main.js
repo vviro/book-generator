@@ -85,7 +85,8 @@ function foot() {
 $(document).ready(function() {
 
     $('#generate').click(function() {
-        var req_id = Math.floor(Math.random()*10000000);
+//        var req_id = Math.floor(Math.random()*10000000);
+        var req_id = 'testbook';
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
         $('#pdf-preview').hide("fast");
