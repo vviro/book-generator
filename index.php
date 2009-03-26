@@ -41,7 +41,7 @@
                                 You can define any number of LaTeX snippets and in them use the variables, that are set by your javascript code.<br>
                                 The javascript template works as follows:<br><br>
                                     <b><i>$-sign</i></b> means the produced LaTeX code,<br>
-                                    <b><i>@templateA( var1, var2 )</i></b> means content of LaTeX snippet with name templateA and variables var1 and var2 set to the values of corresponding variables from the javascript. The variables must be placed in alphabetical order <i>(fn(a,b), not fn(b,a))</i><br><br>
+                                    <b><i>@templateA( var1, var2 )</i></b> means content of LaTeX snippet with name templateA and variables var1 and var2 set to the values of corresponding variables from the javascript. In templates you may use arbitrary number of variables. The only thing is, the variables must be placed in alphabetical order when you are calling the template: <i>(fn(a,b), not fn(b,a))</i><br><br>
 			        After you are finished with editing, click "Generate LaTeX", wait a few moments and follow the link.<br>
                                 After the pdf file is generated you'll see the pdflatex output in the log window.
 	

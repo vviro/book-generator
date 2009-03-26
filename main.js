@@ -5,7 +5,8 @@ var js_example =
 "\n" +
 "for (i = 1; i < n; i++) {\n" +
 "  name = generateName(i);\n" +
-"  $ += @block_1( name );\n" +
+"  j = (i+1)*i/2;\n" +
+"  $ += @block_1( i, j, name );\n" +
 "}\n" +
 "\n" +
 "$ += @footer();\n" +
@@ -20,7 +21,7 @@ var tex_head = "\\documentclass[a5paper]{memoir}\n\\usepackage{graphicx} \n\\use
 
 var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includegraphics[height=150px]{$image}   \n\\caption{$title}   \n\\hspace{-20pt}\n\\end{wrapfigure}\n\n\\newpage\n';
 
-var block_1_text = "Hello, my name is $name.\n";
+var block_1_text = "Hi, my name is $name. Did you know that $ \\sum_{0}^{$i} n $ equals $ $j $?\n";
 
 var tex_foot = "\n\\end{document}";
 
