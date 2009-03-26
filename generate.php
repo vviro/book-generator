@@ -8,16 +8,22 @@ $dir = "/var/www/tmp/book_experimental/cache/$cache_id";
 exec("mkdir $dir");
 
 $js = $_REQUEST['@javascript'];
-unset($_REQUEST['@javascript']);
+$js = stripslashes($js);
 $js = str_replace("@","",$js);
-$fj = fopen("$dir/javascript", "w");
-fwrite($fj, $js."\n");
+$js = "var $ = '';\n". $js . "\n";
+$js .= "runCommand('bash','-c', \"echo '\" + $ + \"' > book.tex\");\n";
 
+$fj = fopen("$dir/javascript", "w");
+fwrite($fj, $js);
+
+unset($_REQUEST['@javascript']);
 foreach ($_REQUEST as $key => $template) {
+    $template = stripslashes($template);
+
     if ($key[0] != "@") continue;
     $key = trim($key, "@");
     $templ_vars_ = array();
-    preg_match_all( '|\$[a-zA-Z_]+|U', $template, $templ_vars_, PREG_PATTERN_ORDER );
+    preg_match_all( '|\$[a-zA-Z_]+|', $template, $templ_vars_, PREG_PATTERN_ORDER );
     $templ_vars = $templ_vars_[0];
     sort( $templ_vars, SORT_STRING );
     $var_list = "";
@@ -27,15 +33,16 @@ foreach ($_REQUEST as $key => $template) {
     $var_list = trim($var_list, ", ");
     
     $fun  = "function ".$key."(".$var_list.") {\n";
-    $fun .= "  $key = readFile('@".$key."');\n";
+    $fun .= "  val_$key = readFile('@".$key."');\n";
     foreach($templ_vars as $var_name) {
-        $fun .= "  $key = $key.replace('$var_name', $var_name)\n";      
+        $fun .= "  val_$key = val_$key.replace('$var_name', $var_name);\n";      
     }
-    $fun .= "  runCommand('bash','-c', 'echo \" + ".$key." + \" >> book.tex');\n";
+//    $fun .= "  runCommand('bash','-c', 'echo \" + val_$key + \" >> book.tex');\n";
+    $fun .= "  return val_$key+\"\n\";\n";
     $fun .= "}\n\n";
 
     fwrite($fj, $fun);
-    $fh = fopen("$dir/".$key, "w");
+    $fh = fopen("$dir/@".$key, "w");
     fwrite($fh, $template);
 }
 

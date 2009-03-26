@@ -11,7 +11,7 @@ fi
 . ./changedir.sh $cachedir
 
 export CLASSPATH=/var/www/tmp/rhino1_7R1/js.jar:$CLASSPATH
-/usr/bin/java org.mozilla.javascript.tools.shell.Main ../../mine_c.js
+/usr/bin/java org.mozilla.javascript.tools.shell.Main javascript
 pdflatex -interaction nonstopmode book.tex > pdflatex.log
 rm book.aux book.log
 cat pdflatex.log
