@@ -26,20 +26,21 @@ var block_1_text = "Hello, my name is $name.\n";
 var tex_foot = "\n\\end{document}";
 
 function editAreaLoaded(id) {
-    if (id==="js-code") {
+    if (id==="editor") {
         var js_file = {id: "javascript", text: js_example, syntax: 'js', title: 'javascript'};
-        editAreaLoader.openFile('js-code', js_file);
+        editAreaLoader.openFile('editor', js_file);
 
         var header_file = {id: "header", text: tex_head, syntax: 'basic', title: 'header'};
-        editAreaLoader.openFile('js-code', header_file);
+        editAreaLoader.openFile('editor', header_file);
 
         var block_1_file = {id: "block_1", text: block_1_text, syntax: 'basic', title: 'block_1'};
-        editAreaLoader.openFile('js-code', block_1_file);
+        editAreaLoader.openFile('editor', block_1_file);
 
         var footer_file = {id: "footer", text: tex_foot, syntax: 'basic', title: 'footer'};
-        editAreaLoader.openFile('js-code', footer_file);
+        editAreaLoader.openFile('editor', footer_file);
 
-        editAreaLoader.openFile('js-code', js_file);
+        // switch back to the javascript page
+        editAreaLoader.openFile('editor', js_file);
 
     }
 }
@@ -47,14 +48,11 @@ function editAreaLoaded(id) {
 
 $(document).ready(function() {
 
-    $('#js-code').val(js_example);
-    $('#js-code').html(js_example);
-
     editAreaLoader.init({
-        id: "js-code" // id of the textarea to transform
+        id: "editor" // id of the textarea to transform
         ,start_highlight: true  // if start with highlight
         ,allow_resize: "both"
-        ,allow_toggle: true
+        ,allow_toggle: false
         ,toolbar: " new_document, save, load, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
         ,is_multi_files: true
         ,language: "en"
@@ -64,29 +62,10 @@ $(document).ready(function() {
     $('#tex-head').val(tex_head);
     $('#tex-foot').val(tex_foot);
 
-    $('#sizex').val(5);
-    $('#sizey').val(6);
-    $('#num_boards').val(2);
-
     $('#log').val("");
     $('#book-link').hide();
     $('#pdf-preview').hide();
     $('#wait').hide();
-
-    $(function() {
-        $("#accordion").accordion({
-            event: "mouseover",
-            fillSpace: true
-        });
-    });
-    $(function() {
-        $("#accordionResizer").resizable({
-            resize: function() {
-                $("#accordion").accordion("resize");
-            },
-            minHeight: 40
-        });
-    });
 
 });
 
@@ -113,9 +92,14 @@ $(document).ready(function() {
         $('#log').empty().val("");
         $('.media').empty();
         $('#wait').show();
-        $.post( "generate.php", {head: head(), page: page(), foot: foot(), x:$('#sizex').val(), y:$('#sizey').val(), 
-                                 num_boards: $('#num_boards').val(), id: req_id}, function(data){ 
 
+        var post_req = new Object();
+        jQuery.each( editAreaLoader.getAllFiles('editor'), function(i, val) {
+            post_req[val.title] = val.text;
+        });
+        post_req['id'] = req_id;
+
+        $.post( "generate.php", post_req, function(data){ 
                 $('#log').val(data);
                 $('#wait').hide();
                 $('#tex-link').attr("href", "cache/"+md5_id+"/book.tex");

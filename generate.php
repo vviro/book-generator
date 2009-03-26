@@ -4,7 +4,7 @@ $req_id = $_REQUEST['id'];
 
 $cache_id = md5($req_id);
 
-$dir = "/var/www/tmp/book/cache/$cache_id";
+$dir = "/var/www/book/cache/$cache_id";
 exec("mkdir $dir");
 
 $head = $_REQUEST['head'];
@@ -41,7 +41,7 @@ $fn = fopen("$dir/num_boards",'w');
 fwrite($fn, $num_boards);
 
 
-$out = shell_exec("/var/www/tmp/book/makebook $dir");
+$out = shell_exec("/var/www/book/makebook $dir");
 
 print($out);
 
