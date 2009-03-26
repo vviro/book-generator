@@ -5,14 +5,15 @@ var js_example =
 "$ += @header();\n" +
 "\n" +
 "for (i = 1; i < n; i++) {\n" +
-"  name = generateStatement(i);\n" +
+"  name = generateName(i);\n" +
 "  $ += @block_1( name );\n" +
 "}\n" +
 "\n" +
 "$ += @footer();\n" +
 "\n" +
-"function generateStatement( i ) {\n" +
-"   return \"I'm number \" + i + \".\";\n" +
+"function generateName( i ) {\n" +
+"   if (i % 2) return \"Ms. \" + i;\n" +
+"   else return \"Mr. \" + i ;\n" +
 "}\n" +
 "";
 
@@ -20,23 +21,45 @@ var tex_head = "\\documentclass[a5paper]{memoir}\n\\usepackage{graphicx} \n\\use
 
 var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includegraphics[height=150px]{$image}   \n\\caption{$title}   \n\\hspace{-20pt}\n\\end{wrapfigure}\n\n\\newpage\n';
 
-var tex_foot = "\\end{document}";
+var block_1_text = "Hello, my name is $name.\n";
+
+var tex_foot = "\n\\end{document}";
+
+function editAreaLoaded(id) {
+    if (id==="js-code") {
+        var js_file = {id: "javascript", text: js_example, syntax: 'js', title: 'javascript'};
+        editAreaLoader.openFile('js-code', js_file);
+
+        var header_file = {id: "header", text: tex_head, syntax: 'basic', title: 'header'};
+        editAreaLoader.openFile('js-code', header_file);
+
+        var block_1_file = {id: "block_1", text: block_1_text, syntax: 'basic', title: 'block_1'};
+        editAreaLoader.openFile('js-code', block_1_file);
+
+        var footer_file = {id: "footer", text: tex_foot, syntax: 'basic', title: 'footer'};
+        editAreaLoader.openFile('js-code', footer_file);
+
+        editAreaLoader.openFile('js-code', js_file);
+
+    }
+}
+
 
 $(document).ready(function() {
 
     $('#js-code').val(js_example);
     $('#js-code').html(js_example);
 
-                editAreaLoader.init({
-                        id: "js-code" // id of the textarea to transform
-                        ,start_highlight: true  // if start with highlight
-                        ,allow_resize: "both"
-                        ,allow_toggle: true
-                        ,toolbar: "search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
-//                        ,is_multi_files: true
-                        ,language: "en"
-                        ,syntax: "js"
-                });
+    editAreaLoader.init({
+        id: "js-code" // id of the textarea to transform
+        ,start_highlight: true  // if start with highlight
+        ,allow_resize: "both"
+        ,allow_toggle: true
+        ,toolbar: " new_document, save, load, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
+        ,is_multi_files: true
+        ,language: "en"
+        ,EA_load_callback: "editAreaLoaded"
+    });
 
     $('#tex-head').val(tex_head);
     $('#tex-foot').val(tex_foot);

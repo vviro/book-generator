@@ -57,49 +57,12 @@
                                 </textarea>
                             </div>
 
-                            <h2>Template elements</h2>
 
                             <div>
                                 <input type="button" value="add a template chunk"/>, 
                                 <input type="button" value="save current state"/>
                             </div>
 
-                            <div id="accordionResizer" style="padding:10px; width:614px; height:459px;" class="ui-widget-content">
-                            <div id="accordion">
-
-                                <h3><a href="#" id="c152623235">header</a></h3>
-                                <div>
-                                    block title:
-                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="header"/>
-                                    <input type="button" value="reset name"/>
-                                    <p>
-                                    <textarea class='tex' id="tex-head" rows="7" cols="40">
-                                    </textarea>
-                                </div>
-
-
-                                <h3><a href="#" id="c1234af1235">block_1</a></h3>
-                                <div>
-                                    block title: 
-                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="block_1"/>   
-                                    <input type="button" value="reset name"/>
-                                    <p> 
-                                    <textarea class='tex' rows="15" cols="40" value="I'm number $name.">
-                                    </textarea>
-                                </div>
-
-                                <h3><a href="#" id="c1232342235">footer</a></h3>
-                                <div>
-                                    block title:
-                                    <input type="text" size="20" maxlength="20" class="chunk-name" value="footer"/>
-                                    <input type="button" value="reset name"/>
-                                    <p>
-                                    <textarea class='tex' id="tex-foot" rows="7" cols="40">
-                                    </textarea>
-                                </div>
-
-                            </div>			    
-                            </div>
 			</div> 
 		    </div> 
 		</div> 
