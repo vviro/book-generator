@@ -7,20 +7,16 @@
 	<link rel="stylesheet" type="text/css" href="css/reset-fonts-grids.css">
 	<link rel="stylesheet" type="text/css" href="css/base-min.css"> 
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-        <link type="text/css" rel="stylesheet" href="css/shCore.css" />
-        <link type="text/css" rel="stylesheet" href="css/shThemeDefault.css" /> 
         <link type="text/css" href="css/smoothness/jquery-ui-1.7.1.custom.css" rel="Stylesheet" /> 
 
         <script type="text/javascript" src="js/php.default.min.js"></script>
+        <script type="text/javascript" src="edit_area/edit_area_full.js"></script>
         
         <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
         <script type="text/javascript" src="js/jquery-ui-1.7.1.custom.min.js"></script>
 
         <script type="text/javascript" src="js/jquery.media.js"></script> 
         <script type="text/javascript" src="js/jquery.metadata.min.js"></script> 
-
-        <script type="text/javascript" src="js/shCore.js"></script>
-        <script type="text/javascript" src="js/shBrushJScript.js"></script> 
 
         <script type="text/javascript" src="main.js"></script>
 
@@ -57,7 +53,7 @@
                             <div id="latex-js">
                                 <h2>LaTeX-generating Javascript</h2>
 
-                                <textarea id="js-code" class='js' rows="13" cols="80">
+                                <textarea id="js-code" rows="13" cols="80">
                                 </textarea>
                             </div>
 
