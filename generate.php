@@ -4,7 +4,7 @@ $req_id = $_REQUEST['id'];
 
 $cache_id = md5($req_id);
 
-$dir = "/var/www/tmp/book_experimental/cache/$cache_id";
+$dir = "/var/www/tmp/book_public/cache/$cache_id";
 exec("mkdir $dir");
 
 $js = $_REQUEST['@javascript'];
@@ -46,7 +46,7 @@ foreach ($_REQUEST as $key => $template) {
     fwrite($fh, $template);
 }
 
-$out = shell_exec("/var/www/tmp/book_experimental/makebook $dir");
+$out = shell_exec("/var/www/tmp/book_public/makebook $dir");
 
 print($out);
 

@@ -93,6 +93,18 @@ function foot() {
 
 $(document).ready(function() {
 
+    $('#hide-intro').show().click(function() {
+        $('#intro').hide("slow");
+        $('#hide-intro').hide()
+        $('#show-intro').show()
+    });
+    $('#show-intro').hide().click(function() {
+        $('#intro').show("slow");
+        $('#hide-intro').show()
+        $('#show-intro').hide()
+    });
+
+
     $('#generate').click(function() {
 //        var req_id = Math.floor(Math.random()*10000000);
         var req_id = 'testbook';
