@@ -83,7 +83,7 @@
                         
                         <a class="media" href="cache/anon/book.pdf" id="pdf-preview"></a>
                         <p>
-                        pdflatex log:<p>
+                        pdflatex log: <a href="#" id='show-hide-log'>+</a><p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
 		    </ul>
 		</div> 

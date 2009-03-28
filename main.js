@@ -104,6 +104,13 @@ $(document).ready(function() {
         $('#show-intro').hide()
     });
 
+    $('#log').hide();
+    $('#show-hide-log').click(function() {
+        if ($('#show-hide-log').html()=='+') {
+            $('#log').show('slow');
+            $('#show-hide-log').empty();
+        }
+    });
 
     $('#generate').click(function() {
 //        var req_id = Math.floor(Math.random()*10000000);
