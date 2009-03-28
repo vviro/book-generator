@@ -145,8 +145,10 @@ $(document).ready(function() {
                     $('#pdf-preview').attr("href", "cache/"+md5_id+"/book.pdf");
                     $('.media').media({width:290, height:425, src:"cache/"+md5_id+"/book.pdf"});
                 } else if (t1 === -1 && t2 ===-1) {
+                    $('#show-hide-log').click();
                     alert("The book is empty => the book does not exist");
                 } else if (t1 !== -1) {
+                    $('#show-hide-log').click();
                     alert("The book could not be generated due to LaTeX error(s). See the log for details.");
                 }
             } );
