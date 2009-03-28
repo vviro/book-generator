@@ -118,6 +118,7 @@ $(document).ready(function() {
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
         $('#pdf-preview').hide("fast");
+        $('#intro').hide("slow");
         $('#log').empty().val("");
         $('.media').empty();
         $('#wait').show();
