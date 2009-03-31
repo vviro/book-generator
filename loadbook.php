@@ -4,7 +4,7 @@ $req_id = $_REQUEST['id'];
 
 $cache_id = md5($req_id);
 
-$dir = "/var/www/tmp/book_experimental/cache/$cache_id";
+$dir = "/var/www/tmp/book_public/cache/$cache_id/store";
 exec("mkdir $dir");
 
 $fj = fopen($dir.'/@javascript', 'r');

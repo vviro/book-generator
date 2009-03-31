@@ -43,6 +43,22 @@ function load_book( req_id ) {
         });
 }
 
+function save_book( req_id ) {
+    if (!req_id) {
+        alert('you have to give it a name.');
+        return;
+    }
+    var post_req = new Object;
+    jQuery.each( editAreaLoader.getAllFiles('editor'), function(i, val) {
+        post_req['@'+val.title] = val.text;
+    });
+    post_req['id'] = req_id;
+    $.post( "save.php", post_req, function(data){
+        alert('document saved');
+    });
+}
+
+
 $(document).ready(function() {
 
     $('#hide-intro').show().click(function() {
@@ -68,9 +84,13 @@ $(document).ready(function() {
         load_book( $('#book_id').val() );
     });
 
+    $('#save').click(function() {
+        save_book( $('#book_id').val() );
+    });
+
     $('#generate').click(function() {
 //        var req_id = Math.floor(Math.random()*10000000);
-        var req_id = 'testbook';
+        var req_id = $('#book_id').val() ;
         var md5_id = md5(req_id);
         $('#book-link').hide("fast");
         $('#pdf-preview').hide("fast");
