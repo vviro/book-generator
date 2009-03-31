@@ -62,7 +62,7 @@ $(document).ready(function() {
         ,start_highlight: true  // if start with highlight
         ,allow_resize: "both"
         ,allow_toggle: false
-        ,toolbar: " new_document, save, load, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
+        ,toolbar: " search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
         ,is_multi_files: true
         ,language: "en"
         ,EA_load_callback: "editAreaLoaded"

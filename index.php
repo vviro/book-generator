@@ -59,7 +59,7 @@
 
 
                             <div>
-                                <input type="button" value="save current state"/>
+<!--                                <input type="button" value="save current state"/> -->
                             </div>
 
 			</div> 
