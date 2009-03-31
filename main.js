@@ -1,56 +1,7 @@
-var js_example =
-"n = 3;\n" +
-"\n" +
-"$ += @header();\n" +
-"\n" +
-"for (i = 1; i < n; i++) {\n" +
-"  name = generateName(i);\n" +
-"  j = (i+1)*i/2;\n" +
-"  $ += @block_1( i, j, name );\n" +
-"}\n" +
-"\n" +
-"$ += @footer();\n" +
-"\n" +
-"function generateName( i ) {\n" +
-"   if (i % 2) return \"Ms. \" + i;\n" +
-"   else return \"Mr. \" + i ;\n" +
-"}\n" +
-"";
-
-var tex_head = "\\documentclass[a5paper]{memoir}\n\\usepackage{graphicx} \n\\usepackage{wrapfig} \n\\begin{document}";
-
-var tex_page = '\\begin{wrapfigure}{c}{150mm}     \n\\vspace{-1pt}    \n\\includegraphics[height=150px]{$image}   \n\\caption{$title}   \n\\hspace{-20pt}\n\\end{wrapfigure}\n\n\\newpage\n';
-
-var block_1_text = "Hi, my name is $name. Did you know that $ \\sum_{0}^{$i} n $ equals $ $j $?\n";
-
-var block_2_text = "";
-var block_3_text = "";
-
-var tex_foot = "\n\\end{document}";
 
 function editAreaLoaded(id) {
     if (id==="editor") {
-        var js_file = {id: "javascript", text: js_example, syntax: 'js', title: 'javascript'};
-        editAreaLoader.openFile('editor', js_file);
-
-        var header_file = {id: "header", text: tex_head, syntax: 'basic', title: 'header'};
-        editAreaLoader.openFile('editor', header_file);
-
-        var block_1_file = {id: "block_1", text: block_1_text, syntax: 'basic', title: 'block_1'};
-        editAreaLoader.openFile('editor', block_1_file);
-
-        var block_2_file = {id: "block_2", text: block_2_text, syntax: 'basic', title: 'block_2'};
-        editAreaLoader.openFile('editor', block_2_file);
-
-        var block_3_file = {id: "block_3", text: block_3_text, syntax: 'basic', title: 'block_3'};
-        editAreaLoader.openFile('editor', block_3_file);
-
-        var footer_file = {id: "footer", text: tex_foot, syntax: 'basic', title: 'footer'};
-        editAreaLoader.openFile('editor', footer_file);
-
-        // switch back to the javascript page
-        editAreaLoader.openFile('editor', js_file);
-
+        load_book();
     }
 }
 
@@ -68,8 +19,6 @@ $(document).ready(function() {
         ,EA_load_callback: "editAreaLoaded"
     });
 
-    $('#tex-head').val(tex_head);
-    $('#tex-foot').val(tex_foot);
 
     $('#log').val("");
     $('#book-link').hide();
@@ -78,17 +27,20 @@ $(document).ready(function() {
 
 });
 
+function load_book( req_id ) {
+        if (!req_id) req_id = "testbook";
 
-function head() {
-    return $('#tex-head').val();
-}
+        $.getJSON("loadbook.php", {id:req_id}, function(data) {
+            var js_file = {id: "b_javascript", text: data['book']['javascript'] , syntax: 'js', title: 'javascript'};
+            editAreaLoader.openFile('editor', js_file);
 
-function page() {
-    return $('#tex-page').val();
-}
+            jQuery.each( data['book']['tmpls'], function(i, val) {
+                var block = {id: 'b_'+val['name'], text: val['value'], syntex: 'basic', title: val['name']};
+                editAreaLoader.openFile('editor', block);
+            });
 
-function foot() {
-    return $('#tex-foot').val();
+            editAreaLoader.openFile('editor', js_file);
+        });
 }
 
 $(document).ready(function() {
@@ -110,6 +62,10 @@ $(document).ready(function() {
             $('#log').show('slow');
             $('#show-hide-log').empty();
         }
+    });
+
+    $('#load').click(function() {
+        load_book( $('#book_id').val() );
     });
 
     $('#generate').click(function() {

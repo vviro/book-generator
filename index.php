@@ -68,6 +68,9 @@
 		<div class="yui-b">
 		    <ul class="right_nav">
 
+                        <input type="text" id="book_id" value="testbook"/>
+                        <input type="button" id="load" value="Load Book"/>
+
                         <input type="button" id="generate" value="Generate LaTeX"/>
                         <p>
                         <img src="img/wait30trans.gif" id='wait'/>
