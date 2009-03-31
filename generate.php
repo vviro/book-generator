@@ -10,6 +10,10 @@ exec("mkdir $dir");
 // forming and storing the main js code block from javascript set in EditArea
 $js = $_REQUEST['@javascript'];
 $js = stripslashes($js);
+
+$fj_orig = fopen("$dir/@javascript", "w");
+fwrite($fj_orig, $js);
+
 $js = str_replace("@","",$js);
 $js = "var $ = '';\n". $js . "\n";
 $js .= "runCommand('bash','-c', \"echo '\" + $ + \"' > book.tex\");\n";
