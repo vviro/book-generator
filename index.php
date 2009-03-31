@@ -18,10 +18,11 @@
 
         <script type="text/javascript" src="main.js"></script>
 
+        <script> var init_book = "<?php echo $_REQUEST['id'] ? $_REQUEST['id'] : "testbook"  ; ?>" </script>
+
     </head>
     
     <body>
-    
 	<div id="doc4" class="yui-t6"> 
 	    <div id="hd">
 		<h1>Create a JavaScripted LaTeX Document!</h1>
@@ -68,7 +69,7 @@
 		<div class="yui-b">
 		    <ul class="right_nav">
 
-                        <input type="text" id="book_id" value="testbook"/> <p>
+                        <input type="text" id="book_id"/> <p>
                         <input type="button" id="load" value="Load Book"/>
                         <input type="button" id="save" value="Save Book"/> <p>
 

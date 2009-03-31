@@ -6,6 +6,7 @@ $cache_id = md5($req_id);
 
 $dir = "/var/www/tmp/book_public/cache/$cache_id";
 exec("mkdir $dir");
+exec("mkdir $dir/img");
 
 // forming and storing the main js code block from javascript set in EditArea
 $js = $_REQUEST['@javascript'];

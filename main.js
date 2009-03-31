@@ -1,7 +1,10 @@
 
 function editAreaLoaded(id) {
     if (id==="editor") {
-        load_book();
+        var req_id = init_book;
+        if (req_id == "testbook")
+            load_book( req_id, false, true );
+        else load_book( req_id, false, false );
     }
 }
 
@@ -27,11 +30,19 @@ $(document).ready(function() {
 
 });
 
-function load_book( req_id, ver ) {
+function load_book( req_id, ver, keep_intro ) {
     if (!req_id) req_id = "testbook";
     if (!ver) ver = "";
+    
+    $('#book_id').val(req_id);    
 
+    $('#book-link').hide("fast");
+    $('#pdf-preview').hide("fast");
+    if (!keep_intro) $('#hide-intro').click();
+    $('#log').empty().val("");
+    $('.media').empty();
     $('#wait').show();
+
     $.getJSON("loadbook.php", {id:req_id, ver:ver}, function(data) {
         $('#wait').hide();
     
