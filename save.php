@@ -4,9 +4,13 @@ $req_id = $_REQUEST['id'];
 
 $cache_id = md5($req_id);
 
+$date = date("Y-m-d_H-i-s");
+
 $dir = "/var/www/tmp/book_public/cache/$cache_id";
 exec("mkdir $dir");
 $dir = "$dir/store";
+exec("mkdir $dir");
+$dir = "$dir/$date";
 exec("mkdir $dir");
 
 foreach ($_REQUEST as $key => $template) {
@@ -19,4 +23,7 @@ foreach ($_REQUEST as $key => $template) {
     fwrite($fh, $template);
 }
 
+$o = array();
+$o['ver'] = $date;
+echo json_encode($o);
 ?>

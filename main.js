@@ -27,20 +27,32 @@ $(document).ready(function() {
 
 });
 
-function load_book( req_id ) {
-        if (!req_id) req_id = "testbook";
+function load_book( req_id, ver ) {
+    if (!req_id) req_id = "testbook";
+    if (!ver) ver = "";
 
-        $.getJSON("loadbook.php", {id:req_id}, function(data) {
-            var js_file = {id: "b_javascript", text: data['book']['javascript'] , syntax: 'js', title: 'javascript'};
-            editAreaLoader.openFile('editor', js_file);
+    $('#wait').show();
+    $.getJSON("loadbook.php", {id:req_id, ver:ver}, function(data) {
+        $('#wait').hide();
+    
+        var js_file = {id: "b_javascript", text: data['book']['javascript'] , syntax: 'js', title: 'javascript'};
+        editAreaLoader.openFile('editor', js_file);
 
-            jQuery.each( data['book']['tmpls'], function(i, val) {
-                var block = {id: 'b_'+val['name'], text: val['value'], syntex: 'basic', title: val['name']};
-                editAreaLoader.openFile('editor', block);
-            });
-
-            editAreaLoader.openFile('editor', js_file);
+        jQuery.each( data['book']['tmpls'], function(i, val) {
+            var block = {id: 'b_'+val['name'], text: val['value'], syntex: 'basic', title: val['name']};
+            editAreaLoader.openFile('editor', block);
         });
+
+        $('#versions').empty();
+        jQuery.each( data['book']['versions'], function(j, v) {
+            $('#versions').append( $('<div/>').append( $('<a/>').attr('href','#').attr('id','ver_'+v).attr('class','ver').html(v) ) );
+            $('#ver_'+v).click(function() {
+                load_book(req_id, v);
+            });
+        });
+
+        editAreaLoader.openFile('editor', js_file);
+    });
 }
 
 function save_book( req_id ) {
@@ -53,8 +65,15 @@ function save_book( req_id ) {
         post_req['@'+val.title] = val.text;
     });
     post_req['id'] = req_id;
-    $.post( "save.php", post_req, function(data){
-        alert('document saved');
+    $('#wait').show();
+    $.getJSON( "save.php", post_req, function(data){
+        $('#wait').hide();
+        var v = data['ver'];
+        $('#versions').prepend( $('<div/>').append( $('<a/>').attr('href','#').attr('id','ver_'+v).attr('class','ver').html(v) ) );
+        $('#ver_'+v).click(function() {
+            load_book(req_id, v);
+        });
+//        alert('document saved. version ' + v);
     });
 }
 

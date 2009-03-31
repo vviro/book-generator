@@ -89,9 +89,10 @@
                         <p>
                         pdflatex log: <a href="#" id='show-hide-log'>+</a><p>
 		        <textarea id='log'  rows="10" cols="20"></textarea>
-		    </ul>
+                        document versions:<p><div id='versions'></div>
+                    </ul>
 		</div> 
-	    </div> 
+	    </div>
 	    <div id="ft">
                 <div id="footer">
                 <center>last edited: <?php echo date ("d-m-Y", filemtime('index.php')) ?><p></center>

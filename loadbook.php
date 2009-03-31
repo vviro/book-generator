@@ -1,11 +1,18 @@
 <?php
 
+$ver = $_REQUEST['ver'];
 $req_id = $_REQUEST['id'];
-
 $cache_id = md5($req_id);
 
 $dir = "/var/www/tmp/book_public/cache/$cache_id/store";
 exec("mkdir $dir");
+
+exec('ls -t '.$dir, $files);
+
+if (count($files) == 0) return;
+else if (!$ver ) $ver = $files[0];
+
+$dir = "$dir/$ver";
 
 $fj = fopen($dir.'/@javascript', 'r');
 $js = fread($fj, filesize($dir.'/@javascript'));
@@ -35,6 +42,7 @@ $b = array(); // book
 $b['id'] = $req_id;
 $b['javascript'] = $js;
 $b['tmpls'] = $tmpls;
+$b['versions'] = $files;
 $o['book'] = $b;
 
 $json = json_encode($o);
