@@ -77,7 +77,7 @@ function save_book( req_id ) {
     });
     post_req['id'] = req_id;
     $('#wait').show();
-    $.getJSON( "save.php", post_req, function(data){
+    $.post( "save.php", post_req, function(data){
         $('#wait').hide();
         var v = data['ver'];
         $('#versions').prepend( $('<div/>').append( $('<a/>').attr('href','#').attr('id','ver_'+v).attr('class','ver').html(v) ) );
@@ -85,7 +85,7 @@ function save_book( req_id ) {
             load_book(req_id, v);
         });
 //        alert('document saved. version ' + v);
-    });
+    }, "json");
 }
 
 
