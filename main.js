@@ -40,8 +40,13 @@ function load_book( req_id, ver, keep_intro ) {
     $('#pdf-preview').hide("fast");
     if (!keep_intro) $('#hide-intro').click();
     $('#log').empty().val("");
+    $('#versions').empty();
     $('.media').empty();
     $('#wait').show();
+
+    jQuery.each( editAreaLoader.getAllFiles('editor'), function(i, val) {
+        editAreaLoader.closeFile('editor', val.id);
+    });
 
     $.getJSON("loadbook.php", {id:req_id, ver:ver}, function(data) {
         $('#wait').hide();
