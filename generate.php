@@ -17,7 +17,7 @@ fwrite($fj_orig, $js);
 
 $js = str_replace("@","",$js);
 $js = "var $ = '';\n". $js . "\n";
-$js .= "runCommand('bash','-c', \"echo '\" + $ + \"' > book.tex\");\n";
+$js .= "runCommand('bash','-c', \"echo \\\"\" + $ + \"\\\" > book.tex\");\n";
 
 $fj = fopen("$dir/javascript", "w");
 fwrite($fj, $js);
